@@ -35,7 +35,7 @@ Runs the app in the development mode on the iOS simulator.
 The app will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-**Note: equires macOS and XCode**
+**Note: Requires macOS and XCode**
 
 ### `yarn android`
 
