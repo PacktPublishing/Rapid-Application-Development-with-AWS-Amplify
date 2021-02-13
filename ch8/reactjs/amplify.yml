@@ -1,0 +1,53 @@
+version: 2
+backend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - "# Execute Amplify CLI with the helper script"
+        - amplifyPush --simple
+    build:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn config set ignore-engines true
+        - yarn install
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn config set ignore-engines true
+        - yarn install
+    build:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
+test:
+  artifacts:
+    baseDirectory: cypress
+    configFilePath: "**/mochawesome.json"
+    files:
+      - "**/*.png"
+      - "**/*.mp4"
+  phases:
+    preTest:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn build
+        - yarn add serve
+    test:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - "serve -s -l 3000 ch8/reactjs/build & sleep 30; yarn e2e"
+    postTest:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn doc & yarn report
+appRoot: ch8/reactjs

@@ -1,0 +1,29 @@
+version: 2
+backend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - "# Execute Amplify CLI with the helper script"
+        - amplifyPush --simple
+    build:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn install
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn install
+    build:
+      commands:
+        - nvm use $VERSION_NODE_12
+        - yarn build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*

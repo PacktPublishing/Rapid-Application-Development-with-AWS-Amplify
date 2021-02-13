@@ -1,0 +1,25 @@
+{
+  "name": "RNAWSCognito",
+  "version": "4.5.5",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "8.0"
+  },
+  "license": {
+    "file": "LICENSE.txt"
+  },
+  "homepage": "https://github.com/aws-amplify/amplify-js/tree/main/packages/amazon-cognito-identity-js",
+  "authors": "Amazon",
+  "summary": "Amazon Cognito Identity SDK for JavaScript",
+  "description": "The Amazon Cognito Identity SDK for JavaScript allows JavaScript enabled applications to sign-up users, authenticate users, view, delete, and update user attributes within the Amazon Cognito Identity service.",
+  "source": {
+    "git": "https://github.com/aws/aws-amplify.git",
+    "tag": "amazon-cognito-identity-js@4.5.5"
+  },
+  "source_files": "ios/**/*.{h,m,c}",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}

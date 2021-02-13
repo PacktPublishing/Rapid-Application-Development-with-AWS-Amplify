@@ -1,0 +1,20 @@
+{
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/report/mochawesome-report/",
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "timestamp": "mmddyyyy_HHMMss"
+  },
+  "baseUrl": "http://localhost:3000",
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 120000,
+  "execTimeout": 120000,
+  "taskTimeout": 120000,
+  "pageLoadTimeout": 120000,
+  "requestTimeout": 120000,
+  "responseTimeout": 120000,
+  "screenshotsFolder": "cypress/report/screenshots",
+  "videosFolder": "cypress/report/videos"
+}

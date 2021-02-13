@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald");
+
+* {
+  font-family: "Oswald", serif;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+section * {
+  width: 100%;
+}
+
+.post {
+  margin-bottom: 15px;
+  width: 400px;
+}
+
+input {
+  border: none;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: none;
+  padding: 10px;
+  width: 380px;
+}
+
+textarea {
+  border: none;
+  margin-bottom: 10px;
+  background-color: #ddd;
+  font-size: 18px;
+  padding: 10px;
+  height: 70px;
+  border: none;
+  width: 380px;
+}
+
+.create-button {
+  font-weight: bold;
+  width: 100%;
+  display: block;
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.post-content {
+  margin-bottom: 0;
+}
+
+button {
+  background-color: red;
+  color: white;
+  outline: none;
+  font-size: 18px;
+  padding: 12px 0px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  border: none;
+}
+
+.update-button,
+.delete-button {
+  background-color: gray;
+  color: white;
+  width: 100px;
+  border: none;
+  font-size: 12px;
+}
+
+.delete-button {
+  float: right;
+}
+
+.find {
+  width: 400px;
+}
+
+amplify-s3-image {
+  --width: 400px;
+}
