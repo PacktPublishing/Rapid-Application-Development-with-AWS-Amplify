@@ -48,12 +48,17 @@ With the following software and hardware list you can run all code files present
 
 ### Software and Hardware List
 
-| Chapter  | Software required                   | OS required                        |
-| -------- | ------------------------------------| -----------------------------------|
-| 1-9      | Visual Studio Code                  | Windows, Mac OS X, and Linux (Any) |
-| 1-9      | Node.js                             | Windows, Mac OS X, and Linux (Any) |
-| 1-9      | AWS Account (free trial)            | Windows, Mac OS X, and Linux (Any) |
-| 1-9      | Android Studio                      | Windows, Mac OS X, and Linux (Any) |
+| Chapter  | Software required                     | OS required                        |
+| -------- | --------------------------------------| -----------------------------------|
+| 1-9      | Visual Studio Code 1.57.0+ (IDE)      | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | Xcode 12.4+ (IDE)                     | Mac OS only(optional)              |
+| 1-9      | AWS Account (free trial)              | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | Android Studio 4.2.1+ (IDE)           | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | React 17+ & React Native 0.64+        | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | Node.js                               | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | Expo SDK 41+                          | Windows, Mac OS X, and Linux (Any) |
+| 1-9      | Typescript 4.3.2+                     | Windows, Mac OS X, and Linux (Any) |
+
 
 [Rapid Application Development with AWS Amplify](https://github.com/PacktPublishing/Rapid-Application-Development-with-AWS-Amplify)
 
