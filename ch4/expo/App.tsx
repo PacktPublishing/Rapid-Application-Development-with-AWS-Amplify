@@ -34,7 +34,7 @@ const App = () => {
 
   return authState && user ? (
     <View style={styles.container}>
-      <Text>Gooday {authState && user ? user.username : "mate"}</Text>
+      <Text>Good day, {authState && user ? user.username : "mate"}</Text>
       <Button
         title="Sign out"
         onPress={() => {

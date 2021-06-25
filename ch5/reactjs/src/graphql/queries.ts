@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+  query GetPost($title: String!) {
+    getPost(title: $title) {
       id
       title
       content
@@ -15,11 +15,19 @@ export const getPost = /* GraphQL */ `
 `;
 export const listPosts = /* GraphQL */ `
   query ListPosts(
+    $title: String
     $filter: ModelPostFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPosts(
+      title: $title
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         title

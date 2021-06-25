@@ -91,7 +91,7 @@ const App = () => {
       console.error('onImageUploadChange err:', err);
     }
   };
-
+  
   useEffect(():void => {
     fetchPosts();
   }, []);

@@ -9,7 +9,6 @@ export type CreatePostInput = {
 };
 
 export type ModelPostConditionInput = {
-  title?: ModelStringInput | null,
   content?: ModelStringInput | null,
   and?: Array< ModelPostConditionInput | null > | null,
   or?: Array< ModelPostConditionInput | null > | null,
@@ -56,14 +55,23 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type Post = {
+  __typename: "Post",
+  id?: string,
+  title?: string,
+  content?: string,
+  createdAt?: string,
+  updatedAt?: string,
+};
+
 export type UpdatePostInput = {
-  id: string,
-  title?: string | null,
+  id?: string | null,
+  title: string,
   content?: string | null,
 };
 
 export type DeletePostInput = {
-  id?: string | null,
+  title: string,
 };
 
 export type ModelPostFilterInput = {
@@ -91,13 +99,25 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
+export type ModelPostConnection = {
+  __typename: "ModelPostConnection",
+  items?:  Array<Post | null > | null,
+  nextToken?: string | null,
+};
+
 export type CreatePostMutationVariables = {
-  input: CreatePostInput,
+  input?: CreatePostInput,
   condition?: ModelPostConditionInput | null,
 };
 
 export type CreatePostMutation = {
-  createPost:  {
+  createPost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -108,12 +128,12 @@ export type CreatePostMutation = {
 };
 
 export type UpdatePostMutationVariables = {
-  input: UpdatePostInput,
+  input?: UpdatePostInput,
   condition?: ModelPostConditionInput | null,
 };
 
 export type UpdatePostMutation = {
-  updatePost:  {
+  updatePost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -124,12 +144,12 @@ export type UpdatePostMutation = {
 };
 
 export type DeletePostMutationVariables = {
-  input: DeletePostInput,
+  input?: DeletePostInput,
   condition?: ModelPostConditionInput | null,
 };
 
 export type DeletePostMutation = {
-  deletePost:  {
+  deletePost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -140,11 +160,11 @@ export type DeletePostMutation = {
 };
 
 export type GetPostQueryVariables = {
-  id: string,
+  title?: string,
 };
 
 export type GetPostQuery = {
-  getPost:  {
+  getPost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -155,15 +175,17 @@ export type GetPostQuery = {
 };
 
 export type ListPostsQueryVariables = {
+  title?: string | null,
   filter?: ModelPostFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListPostsQuery = {
-  listPosts:  {
+  listPosts?:  {
     __typename: "ModelPostConnection",
-    items:  Array< {
+    items?:  Array< {
       __typename: "Post",
       id: string,
       title: string,
@@ -171,12 +193,12 @@ export type ListPostsQuery = {
       createdAt: string,
       updatedAt: string,
     } | null > | null,
-    nextToken: string | null,
+    nextToken?: string | null,
   } | null,
 };
 
 export type OnCreatePostSubscription = {
-  onCreatePost:  {
+  onCreatePost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -187,7 +209,7 @@ export type OnCreatePostSubscription = {
 };
 
 export type OnUpdatePostSubscription = {
-  onUpdatePost:  {
+  onUpdatePost?:  {
     __typename: "Post",
     id: string,
     title: string,
@@ -198,7 +220,7 @@ export type OnUpdatePostSubscription = {
 };
 
 export type OnDeletePostSubscription = {
-  onDeletePost:  {
+  onDeletePost?:  {
     __typename: "Post",
     id: string,
     title: string,

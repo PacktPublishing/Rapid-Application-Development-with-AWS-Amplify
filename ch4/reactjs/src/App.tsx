@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Amplify, { Auth } from 'aws-amplify';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
@@ -12,10 +12,10 @@ Auth.configure({
 });
 
 const App = () => {
-  const [authState, setAuthState] = React.useState<AuthState>();
-  const [user, setUser] = React.useState<any | undefined>();
+  const [authState, setAuthState] = useState<AuthState>();
+  const [user, setUser] = useState<any | undefined>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData)
@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h3>Gooday, {authState === AuthState.SignedIn && user ? user.username : 'mate'}</h3>
+      <h3>Good day, {authState === AuthState.SignedIn && user ? user.username : 'mate'}</h3>
       <p><AmplifySignOut /></p>
     </div>
   )

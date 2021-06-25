@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "ch8",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}

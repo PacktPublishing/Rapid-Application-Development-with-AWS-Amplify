@@ -19,58 +19,59 @@ const App = () => {
   const [updateSectionState, setUpdateSectionState] = useState(false);
 
   useEffect(() => {
-    fetchPosts();
+
+    const fetchPosts = async (): Promise<any> => {
+      try {
+        console.log("fetching posts");
+        const postData: any = await API.graphql(
+          graphqlOperation(queries.listPosts)
+        );
+        const posts: any = postData.data.listPosts.items;
+        setPosts(posts);
+      } catch (err) {
+        console.log("error fetching posts: ", err);
+      }
+    };
+    
+    const createSubscription: any = API.graphql(
+      graphqlOperation(subscriptions.onCreatePost)
+    );
+    createSubscription.subscribe({
+      next: (postData: any) => {
+        console.log("onCreatePost", postData);
+        fetchPosts();
+      },
+    });
+
+    const updateSubscription: any = API.graphql(
+      graphqlOperation(subscriptions.onUpdatePost)
+    );
+    updateSubscription.subscribe({
+      next: (postData: any) => {
+        console.log("onUpdatePost", postData);
+        fetchPosts();
+      },
+    });
+
+    const deleteSubscription: any = API.graphql(
+      graphqlOperation(subscriptions.onDeletePost)
+    );
+    deleteSubscription.subscribe({
+      next: (postData: any) => {
+        console.log("onDeletePost", postData);
+        fetchPosts();
+      },
+    });
+    
+    return () => {
+      createSubscription.unsubscribe();
+      updateSubscription.unsubscribe();
+      updateSubscription.unsubscribe();
+    };
   }, []);
-
-  const fetchPosts = async (): Promise<any> => {
-    try {
-      console.log("fetching posts");
-      const postData: any = await API.graphql(
-        graphqlOperation(queries.listPosts)
-      );
-      const posts: any = postData.data.listPosts.items;
-      setPosts(posts);
-    } catch (err) {
-      console.log("error fetching posts: ", err);
-    }
-  };
-
-  const createSubscription: any = API.graphql(
-    graphqlOperation(subscriptions.onCreatePost)
-  );
-  createSubscription.subscribe({
-    next: (postData: any) => {
-      console.log("onCreatePost", postData);
-      fetchPosts();
-    },
-  });
-
-  const updateSubscription: any = API.graphql(
-    graphqlOperation(subscriptions.onUpdatePost)
-  );
-  updateSubscription.subscribe({
-    next: (postData: any) => {
-      console.log("onUpdatePost", postData);
-      fetchPosts();
-    },
-  });
-
-  const deleteSubscription: any = API.graphql(
-    graphqlOperation(subscriptions.onDeletePost)
-  );
-  deleteSubscription.subscribe({
-    next: (postData: any) => {
-      console.log("onDeletePost", postData);
-      fetchPosts();
-    },
-  });
 
   const setInput = (key: any, value: any): any => {
     setPostState({ ...postState, [key]: value });
-  };
-
-  const refresh = () => {
-    window.location.reload();
   };
 
   const createPost = async (): Promise<any> => {
@@ -109,7 +110,6 @@ const App = () => {
       setCreateSectionState(true);
       console.log("updated post", result);
       setPostState(defaultPostState);
-      refresh();
     } catch (err: any) {
       console.log("error updating post:", err);
     }
@@ -127,7 +127,6 @@ const App = () => {
         })
       );
       console.log("deleted post", result);
-      refresh();
     } catch (err: any) {
       console.log("error deleting post:", err);
     }
