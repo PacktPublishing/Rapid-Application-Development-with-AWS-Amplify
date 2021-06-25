@@ -122,6 +122,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 ## Get to Know the Author
 **Adrian Leung**
 is a full-stack cloud native engineer and Agile Transformation Coach with a deep understanding of Business and Organisational Agilities. His background has led him to coach many enterprises in digital transformation with Design Thinking and Agile as well as enterprise scalable cloud-native solution architectures to deliver real value to their customers.
+  
 Adrian earned a degree in Applied Information Technology from The University of Newcastle, Australia in 2007. His work history includes helping many enterprises in Hong Kong with their digital transformation journey. He is currently the Founder of Adventvr that is building amazing products and espousing the benefits of serverless systems whenever he has the chance.
 
 
