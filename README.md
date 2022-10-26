@@ -126,3 +126,7 @@ is a full-stack cloud native engineer and Agile Transformation Coach with a deep
 Adrian earned a degree in Applied Information Technology from The University of Newcastle, Australia in 2007. His work history includes helping many enterprises in Hong Kong with their digital transformation journey. He is currently the Founder of Adventvr that is building amazing products and espousing the benefits of serverless systems whenever he has the chance.
 
 
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781800207233">https://packt.link/free-ebook/9781800207233 </a> </p>
